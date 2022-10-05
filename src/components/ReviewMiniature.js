@@ -1,7 +1,9 @@
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+import { Link } from 'react-router-dom';
 
 export default function ReviewMiniature({review}){
     return(
+        <Link to={'/review/' + review.id} style={{ textDecoration: 'none' }} className='link'>
         <div className="review">
             <div className='title-date-comments'>
               <p>{review.Title}</p>
@@ -22,5 +24,6 @@ export default function ReviewMiniature({review}){
                 </div>
                 </div>
         </div>
+        </Link>
     )
 }

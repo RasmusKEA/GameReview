@@ -7,9 +7,9 @@ export default function Navbar() {
           RateGame
         </Link>
         <ul>
-          <CustomLink href="/one">One</CustomLink>
-          <CustomLink href="/two">Two</CustomLink>
-          <CustomLink href="/three">Three</CustomLink>
+          <CustomLink href="/profile">Profile</CustomLink>
+          <CustomLink href="/login">Login</CustomLink>
+          <CustomLink href="/logout">Log out</CustomLink>
         </ul>
       </nav>
     )

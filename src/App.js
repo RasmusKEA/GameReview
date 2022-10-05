@@ -1,9 +1,9 @@
 import Navbar from './components/Navbar';
 import './App.css';
-import One from './pages/One';
-import Two from './pages/Two';
-import Three from './pages/Three';
+import Profile from './pages/Profile';
+import Login from './pages/Login';
 import Home from './pages/Home';
+import Review from './pages/Review';
 import {Route, Routes} from 'react-router-dom'
 
 
@@ -13,9 +13,9 @@ function App() {
   <div className='container'>
     <Routes>
       <Route path='/' element={<Home/>}></Route>
-      <Route path='/One' element={<One/>}></Route>
-      <Route path='/Two' element={<Two/>}></Route>
-      <Route path='/Three' element={<Three/>}></Route>
+      <Route path='/Profile' element={<Profile/>}></Route>
+      <Route path='/Login' element={<Login/>}></Route>
+      <Route path='/review/:id' element={<Review/>}></Route>
     </Routes>
   </div>
   

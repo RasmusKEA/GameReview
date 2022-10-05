@@ -5,11 +5,13 @@ import 'react-circular-progressbar/dist/styles.css';
 
 const reviews = [
     {
+        "id" : 1,
         "Title": "This is the title",
         "Date": "29-09-2022",
         "Comments": 5,
         "Rating": 8,
     },{
+        "id" : 2,
         "Title": "This is the title",
         "Date": "29-09-2022",
         "Comments": 5,
