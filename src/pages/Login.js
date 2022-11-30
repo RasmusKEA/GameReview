@@ -1,3 +1,8 @@
-export default function One() {
-  return <h1>Login formula</h1>;
+import LoginForm from "../components/LoginForm";
+export default function Login() {
+  return (
+    <div className="login-page">
+      <LoginForm></LoginForm>
+    </div>
+  );
 }

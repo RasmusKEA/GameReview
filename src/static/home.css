@@ -51,9 +51,9 @@
 .featuredReview{
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 100%;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .featured-review{
@@ -70,12 +70,14 @@
     max-height: auto;
     border: 1px solid rgba(70, 70, 70, 0.15);
     width: 33%;
+    margin-left: 3%;
 }
 
 .under-title, .featured-title{
     display: flex;
     text-align: left;
     justify-content: left;
+    align-items: left;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -98,8 +100,14 @@
     display: flex;
 }
 
+.featured-image-tag {
+    width: 600px;
+    height: 300px;
+}
+
 .link{
     color: black;
+    width: 100%;
 }
 
 
