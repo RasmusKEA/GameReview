@@ -1,3 +1,3 @@
-export default function Three(){
-    return <h1>Profile overview</h1>
+export default function Three() {
+  return <h1>Profile overview</h1>;
 }
