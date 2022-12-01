@@ -103,7 +103,6 @@ class EditReviewComponent extends Component {
   }
 
   render() {
-    const { reviewToEdit } = this.state;
     return (
       <div className="submit-form">
         <div className="form-group-review">

@@ -16,9 +16,10 @@ export default class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   handleSubmit(data) {
     AuthService.login(data.username, data.password)
-      .then(() => (window.location = "/"))
+    .then(() => (window.location = "/"))
       .catch((e) => {
         alert("Wrong username/password");
       });

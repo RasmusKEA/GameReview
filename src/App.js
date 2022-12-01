@@ -7,7 +7,10 @@ import Home from "./pages/Home";
 import Review from "./pages/Review";
 import { Route, Routes } from "react-router-dom";
 import NewReview from "./pages/NewReview";
+
 import EditReview from "./pages/EditReview";
+
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (

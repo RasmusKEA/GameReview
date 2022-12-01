@@ -75,7 +75,7 @@ class ReviewComponent extends Component {
   }
 
   render() {
-    const { review, currentUser, isAdmin, isStaff, isUser } = this.state;
+    const { review, currentUser, isAdmin, isStaff } = this.state;
     return (
       <div className="bimbom">
         <div>
