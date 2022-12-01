@@ -24,6 +24,7 @@ function App() {
         <Route path="/review/:id" element={<Review />}></Route>
         <Route path="/review/new" element={<NewReview />}></Route>
         <Route path="/review/edit/:id" element={<EditReview />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
   );
