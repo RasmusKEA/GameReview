@@ -19,6 +19,8 @@ class ReviewService {
   }
 
   update(id, data) {
+    console.log("id: " + id);
+    console.log("data: " + data);
     return http.put(`/review/${id}`, data, { headers: authHeader() });
   }
 

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { useParams } from "react-router-dom";
 import ReviewService from "../services/review.services";
 import AuthService from "../services/auth.services";
 
-export default class AddReview extends Component {
+class EditReviewComponent extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -12,6 +13,7 @@ export default class AddReview extends Component {
     this.onChangePlatform = this.onChangePlatform.bind(this);
     this.onChangeImageLink = this.onChangeImageLink.bind(this);
     this.saveReview = this.saveReview.bind(this);
+    this.retrieveReview = this.retrieveReview.bind(this);
 
     this.state = {
       title: "",
@@ -20,8 +22,31 @@ export default class AddReview extends Component {
       ratingReasoning: "",
       platform: "",
       image: "",
-      saved: "",
     };
+  }
+
+  componentDidMount() {
+    const { id } = this.props.params;
+    console.log(id);
+    this.retrieveReview(id);
+  }
+
+  retrieveReview(id) {
+    ReviewService.get(id)
+      .then((response) => {
+        this.setState({
+          title: response.data.title,
+          review: response.data.review,
+          rating: response.data.rating,
+          ratingReasoning: response.data.ratingReasoning,
+          platform: response.data.platform,
+          image: response.data.image,
+        });
+        console.log(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   onChangeTitle(e) {
@@ -56,6 +81,7 @@ export default class AddReview extends Component {
   }
 
   saveReview() {
+    const { id } = this.props.params;
     var data = {
       idUser: AuthService.getCurrentUser().id,
       review: this.state.review,
@@ -66,9 +92,9 @@ export default class AddReview extends Component {
       image: this.state.image,
     };
 
-    ReviewService.create(data)
+    ReviewService.update(id, data)
       .then((res) => {
-        alert("Review has been posted");
+        alert("Edit has been published");
         window.location = "/";
       })
       .catch((e) => {
@@ -77,6 +103,7 @@ export default class AddReview extends Component {
   }
 
   render() {
+    const { reviewToEdit } = this.state;
     return (
       <div className="submit-form">
         <div className="form-group-review">
@@ -89,7 +116,7 @@ export default class AddReview extends Component {
             value={this.state.title}
             onChange={this.onChangeTitle}
             name="title"
-          />
+          ></input>
         </div>
         <div className="form-group-review">
           <label htmlFor="review">Review</label>
@@ -154,6 +181,7 @@ export default class AddReview extends Component {
             name="image"
           />
         </div>
+
         <button
           onClick={this.saveReview}
           className="btn btn-success create-review-btn"
@@ -164,3 +192,7 @@ export default class AddReview extends Component {
     );
   }
 }
+
+export default (props) => (
+  <EditReviewComponent {...props} params={useParams()} />
+);

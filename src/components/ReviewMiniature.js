@@ -68,7 +68,11 @@ export default class MiniatureList extends Component {
                   </div>
 
                   <div className="image">
-                    <img src={review.image} alt="example" />
+                    <img
+                      src={review.image}
+                      alt="example"
+                      style={{ width: "200px", height: "100px" }}
+                    />
                   </div>
                 </div>
               </div>

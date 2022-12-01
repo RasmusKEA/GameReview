@@ -35,46 +35,48 @@ export default class FeaturedReview extends Component {
       <div className="featuredReview">
         {featured &&
           featured.map((feat, index) => (
-            <Link
-              to={"/review/" + feat.id}
-              style={{ textDecoration: "none" }}
-              className="link"
-              key={index}
-            >
-              <div className="featuredReview">
-                <div className="featured-image">
-                  <img
-                    src={feat.image}
-                    alt="example"
-                    className="featured-image-tag"
-                  />
-                </div>
-
-                <div className="review-snippet">
-                  <div className="featured-rating">
-                    <CircularProgressbar
-                      value={feat.rating}
-                      styles={buildStyles({
-                        textSize: "40px",
-                        textColor: "black",
-                        pathColor: "#eb3c2d",
-                      })}
-                      strokeWidth={8}
-                      maxValue={10}
-                      text={`${feat.rating}`}
+            <div className="outer-featured">
+              <Link
+                to={"/review/" + feat.id}
+                style={{ textDecoration: "none" }}
+                className="featured-link"
+                key={index}
+              >
+                <div className="featuredReview">
+                  <div className="featured-image">
+                    <img
+                      src={feat.image}
+                      alt="example"
+                      className="featured-image-tag"
                     />
                   </div>
-                  <div className="featured-text">
-                    <div className="featured-title">
-                      <p>{feat.title}</p>
+
+                  <div className="review-snippet">
+                    <div className="featured-rating">
+                      <CircularProgressbar
+                        value={feat.rating}
+                        styles={buildStyles({
+                          textSize: "40px",
+                          textColor: "black",
+                          pathColor: "#eb3c2d",
+                        })}
+                        strokeWidth={8}
+                        maxValue={10}
+                        text={`${feat.rating}`}
+                      />
                     </div>
-                    <div className="under-title">
-                      <p>{feat.title}</p>
+                    <div className="featured-text">
+                      <div className="featured-title">
+                        <p>{feat.title}</p>
+                      </div>
+                      <div className="under-title">
+                        <p>{feat.title}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}
       </div>
     );

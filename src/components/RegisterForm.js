@@ -125,14 +125,17 @@ export default class LoginForm extends React.Component {
 
               <div className="form-group">
                 <button
+                  type="submit"
+                  className="btn btn-primary float-right register-btn"
+                >
+                  Register
+                </button>
+                <button
                   type="button"
                   onClick={resetForm}
                   className="btn btn-warning"
                 >
                   Reset
-                </button>
-                <button type="submit" className="btn btn-primary float-right">
-                  Register
                 </button>
               </div>
             </Form>

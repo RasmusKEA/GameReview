@@ -10,6 +10,7 @@ export default class NavbarNew extends Component {
     this.logOut = this.logOut.bind(this);
 
     this.state = {
+      isUser: false,
       isStaff: false,
       isAdmin: false,
       currentUser: undefined,
@@ -22,7 +23,8 @@ export default class NavbarNew extends Component {
     if (user) {
       this.setState({
         currentUser: user,
-        isStaff: user.roles.includes("ROLE_MODERATOR"),
+        isUser: user.roles.includes("ROLE_USER"),
+        isStaff: user.roles.includes("ROLE_STAFF"),
         isAdmin: user.roles.includes("ROLE_ADMIN"),
       });
     }
@@ -33,6 +35,7 @@ export default class NavbarNew extends Component {
     if (confirm) {
       AuthService.logout();
       this.setState({
+        isUser: false,
         isStaff: false,
         isAdmin: false,
         currentUser: undefined,
@@ -42,7 +45,7 @@ export default class NavbarNew extends Component {
   }
 
   render() {
-    const { currentUser } = this.state;
+    const { currentUser, isAdmin, isStaff, isUser } = this.state;
     return (
       <nav className="nav">
         <Link to="/" className="site-title">
@@ -51,10 +54,13 @@ export default class NavbarNew extends Component {
         <ul>
           {currentUser && <CustomLink href="/profile">Profile</CustomLink>}
           {!currentUser && <CustomLink href="/login">Login</CustomLink>}
+          {!currentUser && <CustomLink href="/register">Register</CustomLink>}
+          {isAdmin && <CustomLink href="/review/new">New review</CustomLink>}
+          {isStaff && <CustomLink href="/review/new">New review</CustomLink>}
           {currentUser && (
-            <CustomLink onClick={this.logOut} href="/logout">
+            <Link onClick={this.logOut} className="logout-link">
               Log out
-            </CustomLink>
+            </Link>
           )}
         </ul>
       </nav>
