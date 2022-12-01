@@ -5,11 +5,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Review from "./pages/Review";
-import { Route, Routes } from "react-router-dom";
+import {Route, Routes } from "react-router-dom";
 import NewReview from "./pages/NewReview";
+import NotFound from "./pages/NotFound";
 
 function App() {
-  return (
+
+return (
     <>
       <Navbar />
       <div className="container">
@@ -20,6 +22,7 @@ function App() {
           <Route path="/Register" element={<Register />}></Route>
           <Route path="/review/:id" element={<Review />}></Route>
           <Route path="/review/new" element={<NewReview />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
     </>

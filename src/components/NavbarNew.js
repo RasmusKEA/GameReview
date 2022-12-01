@@ -22,6 +22,8 @@ export default class NavbarNew extends Component {
     if (user) {
       this.setState({
         currentUser: user,
+        isUser: user.roles.includes("ROLE_USER"),
+        isUser: false,
         isStaff: user.roles.includes("ROLE_MODERATOR"),
         isAdmin: user.roles.includes("ROLE_ADMIN"),
       });
