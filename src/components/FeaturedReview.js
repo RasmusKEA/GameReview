@@ -22,7 +22,7 @@ export default class FeaturedReview extends Component {
         this.setState({
           featured: response.data,
         });
-        console.log(response.data);
+        //console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -34,13 +34,12 @@ export default class FeaturedReview extends Component {
     return (
       <div className="featuredReview">
         {featured &&
-          featured.map((feat, index) => (
-            <div className="outer-featured">
+          featured.map((feat) => (
+            <div className="outer-featured" key={feat}>
               <Link
                 to={"/review/" + feat.id}
                 style={{ textDecoration: "none" }}
                 className="featured-link"
-                key={index}
               >
                 <div className="featuredReview">
                   <div className="featured-image">

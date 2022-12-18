@@ -24,7 +24,7 @@ export default class MiniatureList extends Component {
         this.setState({
           reviews: response.data,
         });
-        console.log(response.data);
+        //console.log(response.data);
       })
       .catch((e) => {
         console.log(e);

@@ -27,7 +27,7 @@ class EditReviewComponent extends Component {
 
   componentDidMount() {
     const { id } = this.props.params;
-    console.log(id);
+    //console.log(id);
     this.retrieveReview(id);
   }
 
@@ -42,7 +42,7 @@ class EditReviewComponent extends Component {
           platform: response.data.platform,
           image: response.data.image,
         });
-        console.log(response.data);
+        //console.log(response.data);
       })
       .catch((e) => {
         console.log(e);

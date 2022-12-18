@@ -62,15 +62,12 @@ class ReviewComponent extends Component {
     if (confirm) {
       ReviewService.delete(id)
         .then((response) => {
-          this.setState({
-            review: response.data,
-          });
-          console.log(response.data);
+          console.log(response);
+          window.location = "/";
         })
         .catch((e) => {
           console.log(e);
         });
-      window.location = "/";
     }
   }
 
