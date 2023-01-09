@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://nodejs-backend-372003.ey.r.appspot.com/api/auth/";
+const API_URL = "http://localhost:8080/api/auth/";
 
 class AuthService {
   login(username, password) {
